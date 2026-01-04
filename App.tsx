@@ -22,6 +22,14 @@ import {
 import { PROJECTS, SKILLS, SOCIAL_LINKS } from './constants';
 import { GoogleGenAI } from "@google/genai";
 
+// Satisfy TypeScript regarding process.env which is injected by Vite define
+declare const process: {
+  env: {
+    API_KEY: string;
+    [key: string]: string | undefined;
+  };
+};
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
